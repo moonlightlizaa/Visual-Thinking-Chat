@@ -1,38 +1,51 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
+# Chat app 💬 using websockets (Nodejs, Express & Socket.io)
 
-# Titel
+We are going to develop a chat application using Express, Websockets. Tough you can use plain websockets but we would be using a library called Socket.io - which is wrapper around Websockets, its super easy to use and provies a fallback to xhr requests until the websocket connection is established.
 
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+The frontend-ui is based on Flexbox, no external UI libraries are used, so you can modify it as per your liking.
 
-## Inhoudsopgave
+---
 
-- [Beschrijving](#beschrijving)
-- [Gebruik](#gebruik)
-- [Kenmerken](#kenmerken)
-- [Installatie](#installatie)
-- [Bronnen](#bronnen)
-- [Licentie](#licentie)
+## What is Websocket ?
 
-## Beschrijving
+WebSockets are an alternative to HTTP communication in Web Application, they offer full-duplex communication, that is, it is, bi-directional and that means the data can flow in both ways, so it can flow from client to the server and also from server to the client.
 
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+---
 
-## Gebruik
+## To start setting up the project
 
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+Step 1: Clone the repo
 
-## Kenmerken
+```bash
+git clone https://github.com/trulymittal/chat-socket.io.git
+```
 
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+Step 2: cd into the cloned repo and run:
 
-## Installatie
+```bash
+npm install
+```
 
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+Step 3: Start the chat app (development mode)
 
-## Bronnen
+```bash
+npm run dev
+```
 
-## Licentie
+Step 4: Start the chat app
 
-This project is licensed under the terms of the [MIT license](./LICENSE).
+```bash
+npm start
+```
+
+## Author
+
+- [**Truly Mittal**](https://trulymittal.com)
+
+## Contribute
+
+You can fork this repo and send me a PR.
+
+## License
+
+This project is licensed under the MIT License.

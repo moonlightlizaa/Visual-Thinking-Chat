@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -72,116 +75,173 @@
 
 body {
   font-family: var(--vtPrimaryFont);
-  overflow: hidden;
-  min-height: 100vh;
-  min-width: 100vw;
+  align-items: center;
+  display: grid;
+
+  background-image: url(/assets/background.svg);
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: right top;
 }
 
 main {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 100px 150px;
+
+  display: grid;
+  grid:
+    "intro chat" 1fr
+    / 1fr 1fr;
+  gap: 200px;
 }
 
-section {
-  width: 20rem;
-  height: 30rem;
-  /* background: rgb(239, 238, 238); */
-  background: var(--vtGrey-10);
-  backdrop-filter: blur(1rem);
-
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.visual-thinking-intro {
+  grid-area: intro;
 }
 
-section h1 {
-  margin: 0;
-  padding: 0;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+h1 {
+  color: var(--vtDarkBlue);
+  font-size: 2rem;
 
   font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1rem;
+
+  width: 15em;
+}
+
+.visual-intro {
+  margin-top: 1.5em;
+
   color: var(--vtDarkBlue);
+  font-size: 1rem;
+  font-weight: 400;
+
+  width: 25em;
 }
 
-section h1 span {
-  font-size: 0.5rem;
-  display: inline-block;
-  width: 4.5rem;
-  color: magenta;
-  text-transform: lowercase;
-}
-
-section ul {
-  margin: 0;
-  padding: 0.2em;
-  list-style-type: none;
-  flex-grow: 2;
-  width: 18em;
-  overflow-y: scroll;
-}
-
-::-webkit-scrollbar {
-  background: transparent;
-}
-
-section ul > li {
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
-}
-
-section form {
-  margin: 0 0 1rem 0;
-  padding: 0;
-  width: 18rem;
-  height: 2rem;
+.visual-thinking-chat {
+  grid-area: chat;
   display: flex;
+  place-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-section form input[type="text"] {
-  margin: 0;
-  padding: 0 1rem;
+.chat-main {
+  border: 1px solid;
+  border-color: var(--vtGrey-50);
+  overflow: hidden;
+}
+
+.name {
+  display: flex;
+  font-size: 32px;
+  font-weight: 700;
+  padding: 10px 16px;
+  color: #7e7e7e;
+  background-color: #ebebeb;
+}
+
+.name-input {
+  font-family: var(--vtPrimaryFont);
+  color: var(--vtDarkBlue);
+  opacity: 75%;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+
+  flex-grow: 1;
   border: none;
-  height: 2rem;
-  flex-grow: 2;
-  background: rgb(239, 238, 238);
-  box-shadow: inset 0.2rem 0.2rem 0.3rem 0 rgba(209, 205, 199, 0.5);
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
-  border: 0;
-  opacity: 80%;
+  margin: 0px 15px;
   outline: none;
+  background-color: #ebebeb;
 }
 
-section form > button {
-  padding: 0 0.6rem 0 0.4rem;
-  width: 2rem;
-  background: rgb(239, 238, 238);
-  box-shadow: inset -0.2rem 0.2rem 0.3rem 0 rgba(209, 205, 199, 0.5);
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-  border: 0;
-  opacity: 80%;
-  outline: none;
+.message-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--vtGrey-10);
+  width: 400px;
+  height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-section form > button span {
-  display: none;
+.message-left,
+.message-right {
+  list-style: none;
+  padding: 8px 12px;
+  margin: 12px;
+  max-width: 250px;
+  font-size: 18px;
+  word-wrap: break-word;
 }
 
-li {
+.message-left {
+  align-self: flex-start;
+  color: var(--vtDarkBlue);
+  background-color: var(--vtGrey-50);
+}
+
+.message-right {
+  align-self: flex-end;
   background-color: var(--vtSec-DarkBlue);
-  border-radius: 1em;
-  color: var(--vtWhite);
 
-  margin-bottom: 1rem;
+  color: #f6f6f6;
+}
+
+.message-left > p > span,
+.message-right > p > span {
+  display: block;
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.feedback {
+  font-family: var(--vtPrimaryFont);
+  font-style: italic;
+  font-size: 14px;
+  padding: 0px 16px 16px 16px;
+  color: var(--vtDarkBlue);
+  text-align: center;
+}
+
+.message-form {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.message-input {
+  flex-grow: 1;
+  height: 48px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 0 12px;
+  background-color: var(--vtWhite);
+}
+
+.send-button {
+  height: 48px;
+  border: none;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 800;
+  padding: 0px 20px;
+  outline: none;
+  color: var(--vtWhite);
+  background-color: var(--vtSec-DarkBlue);
+  cursor: pointer;
+}
+
+.v-divider {
+  height: 48px;
+  width: 2px;
+  background-color: var(--vtWhite);
+}
+
+.clients-total {
+  margin: 0.9em 0;
+  color: #3a3a66;
 }
