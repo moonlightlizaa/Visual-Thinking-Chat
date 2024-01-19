@@ -73,6 +73,7 @@
   --vtSecondaryFont: "yrsa", serif;
 }
 
+
 body {
   font-family: var(--vtPrimaryFont);
   align-items: center;
@@ -85,14 +86,64 @@ body {
 }
 
 main {
-  margin: 100px 150px;
+  margin: 10px 20px;
 
   display: grid;
   grid:
-    "intro chat" 1fr
-    / 1fr 1fr;
-  gap: 200px;
+    "intro" 0.5fr
+    "chat" 1fr
+    / 1fr;
+  gap: 20px;
 }
+
+
+h1 {
+  color: var(--vtDarkBlue);
+  font-size: 2rem;
+
+  font-weight: 800;
+
+  width: auto;
+}
+
+.visual-intro {
+  margin-top: 1.5em;
+
+  color: var(--vtDarkBlue);
+  font-size: 1rem;
+  font-weight: 400;
+
+}
+
+
+@media (min-width: 68em) {
+  body {
+    font-family: var(--vtPrimaryFont);
+    align-items: center;
+    display: grid;
+  
+    background-image: url(/assets/background.svg);
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: right top;
+  }
+  
+  main {
+    margin: 100px 150px;
+  
+    display: grid;
+    grid:
+      "intro chat" 1fr
+      / 1fr 1fr;
+    gap: 200px;
+  }
+
+  .visual-thinking-intro {
+    grid-area: intro;
+  }
+  
+}
+
 
 .visual-thinking-intro {
   grid-area: intro;
@@ -245,3 +296,4 @@ h1 {
   margin: 0.9em 0;
   color: #3a3a66;
 }
+
