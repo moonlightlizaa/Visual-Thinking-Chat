@@ -23,6 +23,8 @@ socket.on("clients-total", (data) => {
   clientsTotal.innerText = `Online: ${data}`;
 });
 
+// Controleert of het bericht leeg is of niet
+
 function sendMessage() {
   if (messageInput.value === "") return;
   // console.log(messageInput.value)
@@ -31,8 +33,8 @@ function sendMessage() {
     message: messageInput.value, // bericht uit formulier
     dateTime: new Date(), // datum van het bericht
   };
-  socket.emit("message", data);
-  addMessageToUI(true, data); 
+  socket.emit("message", data); // stuur bericht naar server
+  addMessageToUI(true, data); // Voegt bericht toe van user in UI
   messageInput.value = ""; // Leegt text velt nadat het bericht verstuurt is
 }
 
@@ -66,7 +68,9 @@ function scrollToBottom() {
   messageContainer.scrollTo(0, messageContainer.scrollHeight);
 }
 
-// feedforward & feedback
+// feedforward & feedback van het typen van je bericht
+// als iemand anders aan het typen is dan zie je een bericht daarvan
+
 
 messageInput.addEventListener("focus", (e) => {
   socket.emit("feedback", {
